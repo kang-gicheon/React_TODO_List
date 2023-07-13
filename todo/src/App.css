@@ -4,7 +4,7 @@
   margin: 0 auto;
   box-sizing: border-box;
   padding: 20px;
-  border:  1px solid gray;
+  /* border:  1px solid gray; */
   display: flex;
   flex-direction: column;
   gap: 30px;
