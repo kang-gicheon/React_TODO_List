@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
 import "./App.css";
 import Header from "./component/Header";
 import TodoEditor from "./component/TodoEditor";
@@ -32,6 +32,19 @@ const mockTodo = [
 function App() {
   // 할 일 아이템 상태를 관리할 state, 배열로 초기화
   const [todo, setTodo] = useState([mockTodo]);
+
+  const idRef = useRef(3); // 게시물 테스트 파일에 맞게 초깃값 ref객체 3으로 저장
+
+  const onCreate = (content) => {
+    const newItem = {
+      id: idRef.current, // idRef(현재값 : 3 = 새로 추가할 아이템 id 지정), 처음 추가라면 아이템 id = 3
+      content,
+      isDone: false,
+      createDate: new Date().getTime(),
+    };
+    setTodo([newItem, ...todo]);
+    idRef.current += 1; // idRef의 현재값 + 1, 아이템을 추가할때마다 idRef의 현재값 1씩 증가 (고유 id 갖게함)
+  };
 
   return (
     <div className="App">
