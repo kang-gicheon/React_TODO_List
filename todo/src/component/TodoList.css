@@ -18,3 +18,11 @@
     outline: none;
     border-bottom: 1px solid #1f93ff;
 }
+
+/* 할 일 목록 간격 띄우기 적용 */
+
+.TodoList .list_wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;  /* 행, 열 간격 속성 설정 */
+}
