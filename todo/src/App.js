@@ -31,7 +31,7 @@ const mockTodo = [
 
 function App() {
   // 할 일 아이템 상태를 관리할 state, 배열로 초기화
-  const [todo, setTodo] = useState([mockTodo]);
+  const [todo, setTodo] = useState(mockTodo);
 
   const idRef = useRef(3); // 게시물 테스트 파일에 맞게 초깃값 ref객체 3으로 저장
 
@@ -53,7 +53,7 @@ function App() {
       {/* 할 일을 작성할 edit 영역 */}
       <TodoEditor onCreate={onCreate} />
       {/* 작성한 할 일 목록 영역 */}
-      <TodoList />
+      <TodoList todo={todo} />
     </div>
   );
 }
