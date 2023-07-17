@@ -10,10 +10,13 @@ const TodoList = ({ todo }) => {
     setSearch(e.target.value);
   };
   const getSearchResult = () => {
-    return search === ""
-      ? todo
-      : todo.filter((it) =>
-          it.content.toLowerCase().includes(search.toLowerCase())
+    // 검색 기능, toLowerCase 메서드를 이용해 문자열에 있는 대문자 -> 소문자로 바꿔서 검색 가능
+    return search === "" // 현재 입력한 검색어가 search가 빈 문자열이라면
+      ? todo // to를 그대로 반환
+      : todo.filter(
+          (
+            it // 빈 문자열이 아니라면 search의 내용과 일치하는 아이템만 필터링
+          ) => it.content.toLowerCase().includes(search.toLowerCase())
         );
   };
 
