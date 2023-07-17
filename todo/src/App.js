@@ -46,6 +46,21 @@ function App() {
     idRef.current += 1; // idRef의 현재값 + 1, 아이템을 추가할때마다 idRef의 현재값 1씩 증가 (고유 id 갖게함)
   };
 
+  const onUpdate = (targetId) => {
+    setTodo(
+      todo.map((it) => {
+        if (it.id === targetId) {
+          return {
+            ...it,
+            isDone: !it.isDone,
+          };
+        } else {
+          return it;
+        }
+      })
+    );
+  };
+
   return (
     <div className="App">
       {/* 헤더 영역 */}
@@ -53,7 +68,7 @@ function App() {
       {/* 할 일을 작성할 edit 영역 */}
       <TodoEditor onCreate={onCreate} />
       {/* 작성한 할 일 목록 영역 */}
-      <TodoList todo={todo} />
+      <TodoList todo={todo} onUpdate={onUpdate} />
     </div>
   );
 }
