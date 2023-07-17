@@ -2,7 +2,7 @@ import { useState } from "react";
 import TodoItem from "./TodoItem";
 import "./TodoList.css";
 
-const TodoList = ({ todo, onUpdate }) => {
+const TodoList = ({ todo, onUpdate, onDelete }) => {
   // props 구조 분해 할당
 
   const [search, setSearch] = useState("");
@@ -32,7 +32,12 @@ const TodoList = ({ todo, onUpdate }) => {
       {/* 여러 개의 할 일 아이템을 리스트로 보여줄 div 태그 요소 배치 */}
       <div className="list_wrapper">
         {getSearchResult().map((it) => (
-          <TodoItem key={it.id} {...it} onUpdate={onUpdate} />
+          <TodoItem
+            key={it.id}
+            {...it}
+            onUpdate={onUpdate}
+            onDelete={onDelete}
+          />
         ))}
       </div>
     </div>

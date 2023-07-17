@@ -1,10 +1,15 @@
 import "./todoItem.css";
 
-const TodoItem = ({ id, content, isDone, createdDate, onUpdate }) => {
+const TodoItem = ({ id, content, isDone, createdDate, onUpdate, onDelete }) => {
   const onChangeCheckbox = () => {
     // 함수 onUpdate 추가, 체크박스를 클릭시 onChangeCheckbox 함수 호출
     onUpdate(id); // 인수로 현재 클릭이 발생한 할 일 아이템 id 전달
   };
+
+  const onClickDelete = () => {
+    onClickDelete(id);
+  };
+
   return (
     <div className="TodoItem">
       <div className="checkbox_col">
@@ -20,7 +25,7 @@ const TodoItem = ({ id, content, isDone, createdDate, onUpdate }) => {
       {/* 작성된 시간을 렌더링할 요소 배치 */}
       <div className="btn_col">
         {/* 할 일 삭제 버튼 배치 */}
-        <button>삭제</button>
+        <button onClick={onClickDelete}>삭제</button>
       </div>
     </div>
   );
