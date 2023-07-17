@@ -47,12 +47,18 @@ function App() {
   };
 
   const onUpdate = (targetId) => {
+    // 게시물 수정 함수
     setTodo(
       todo.map((it) =>
         it.id === targetId ? { ...it, isDone: !it.isDone } : it
       )
     );
   };
+
+  const onDelete = (targetId) => {
+    // 게시글 삭제 함수
+    setTodo(todo.filter((it) => it.id !== targetId));
+  }; // 삭제 버튼 클릭 -> 삭제할 아이템 id 저장, 해당 id 요소를 뺀 새 배열로 todo 업데이트, 대상 아이템 삭제
 
   return (
     <div className="App">
@@ -61,7 +67,7 @@ function App() {
       {/* 할 일을 작성할 edit 영역 */}
       <TodoEditor onCreate={onCreate} />
       {/* 작성한 할 일 목록 영역 */}
-      <TodoList todo={todo} onUpdate={onUpdate} />
+      <TodoList todo={todo} onUpdate={onUpdate} onDelete={onDelete} />
     </div>
   );
 }
