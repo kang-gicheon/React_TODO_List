@@ -1,4 +1,4 @@
-import "./todoItem.css";
+import "./TodoItem.css";
 
 const TodoItem = ({ id, content, isDone, createdDate, onUpdate, onDelete }) => {
   const onChangeCheckbox = () => {
