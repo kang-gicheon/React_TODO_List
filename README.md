@@ -21,7 +21,6 @@
 ### 💻 기술 스택
 <hr/>
  <img src="https://img.shields.io/badge/React-v18.2.0-blue?logo=React"/>
-  <img src="https://img.shields.io/badge/React-v18.2.0-blue?logo=React"/>
   
   ![CreatePlan](./image/json_version.PNG)<br><br>
 
